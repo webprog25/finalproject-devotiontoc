@@ -1,26 +1,64 @@
 Webprog Final Project Proposal
 =============================
-<TODO: Fill in this proposal template and remove the TODOs (including the < >).>
 
-Project Title: <TODO: Come up with a name, or a short description will do>
-Your Name: <TODO>
+Project Title: IronLog - a simple strength training tracker
+Your Name: Marcel Gabriel Janzer
 
 Description
 -----------
-<TODO: Tell us about your project idea. What will it do, how will it work. A paragraph or two should do. It may be helpful to include a "feature list" that details what users will be able to do in the app.>
+Because I already have some experience with js (from school and B.Sc. CS), 
+I want to build something I'll actually personally use, and keep improving, even after the course ends. I like going to the gym and have tried many "fitness apps", but none of them gave me the features 
+I needed without a paywall. So with this in mind I want to create a website that will then be later incorporated via 
+the WebKit (iOS, since I have an Iphone), to serve its content within an app on my phone. Therefore I definitely will need to be
+developing with a "mobile first" thought in my mind.
+
+Now more things regarding the web app itself: 
+
+So again I’d like to build a small web app that makes it easier to keep track of my gym workouts. IronLog will let me:
+
+- Look up exercises: quick search with a picture/GIF so I remember how the exercise is properly executed (there some API's out there that serve these GIFS, but I need to evaluate the pros and cons especially regarding pricing: e.g. https://www.gymfit-api.com/)
+- Build workout templates: e.g. “Push Day” or “Legs” then reuse them
+- Log sets in real time: type reps and weight (optional: see a timer while I rest (would be nice to see that on the lockscreen, but dont know how yet, especially since the WebKit integration might come later)) and swipe/click to the next set (again because of mobile)
+- Progress: simple charts that show total volume over time 
+
+Everything saves to a MongoDB backend through a Node API. I also want to add google sign-in, because some friends of mine would also be very interested in such an app. 
+Additionally, in the future, it would even be nice to compare stats among friends, but I'm not sure about this yet. 
 
 Milestone(s)
 ------------
-<TODO: Talk a bit about the process you want to take, and what you'd like to have done by the check-in milestone. I won't hold you to that milestone; we just want you to be thinking about the order you'll be working on things. If there are any current or anticipated blockers (e.g. needing to get data from an external source or getting feedback on something), please identify those here too.>
+
+I plan to finish until step 2-3 for the Midpoint check.
+
+1	Set up Express server, MongoDB models (User, Exercise, Workout, Log) and basic GET/POST routes
+2	Static HTML/CSS: mobile first layout with Flexbox and searchable exercise list
+3	Workout Builder: drag and drop (maybe using SortableJS) and save to backend
+4	Add Chart.js graphs and google signin 
+5	Final steps: tweaks, polishes etc.
+
+Possible blockers
+
+    Finding or making decent exercise GIFs (might pull from the wger or gymfit API)
+
+    Making drag and drop feel good on touch screens, since I dont have much experience with mobile :(
 
 External libraries and code
 ---------------------------
-<TODO: Identify any external libraries or code you plan to use, and describe how it fits into your project. It's fine to say "None" here, and you can change your mind later.>
+
+Chart.js: draw progress graphs
+
+Google  Services: OAuth login
+
+SortableJS: drag and drop in the workout builder
+
+Luxon: nicer date/time handling
+
+wger Exercise API (maybe): data for exercise names + images/GIFS
 
 Collaboration and resources
 ---------------------------
-<TODO: Identify any sources you plan to consult, except for code listed above. This might include getting feedback from users or getting data from an external source.>
+I’m working solo, but I’ll ask a couple of my friends to test the UI and give feedback.
 
 Anything else?
 -------------
-<TODO: Anything else you'd like me to know?>
+
+Stretch goals: export logs to CSV for further analysis and add dark mode. Also WebKit intgegration on iOS, as mentioned earlier. 
