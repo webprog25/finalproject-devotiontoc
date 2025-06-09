@@ -20,6 +20,7 @@ So again I’d like to build a small web app that makes it easier to keep track 
 - Build workout templates: e.g. “Push Day” or “Legs” then reuse them
 - Log sets in real time: type reps and weight (optional: see a timer while I rest (would be nice to see that on the lockscreen, but dont know how yet, especially since the WebKit integration might come later)) and swipe/click to the next set (again because of mobile)
 - Progress: simple charts that show total volume over time 
+- Calendar that shows my workout templates for a specific day
 
 Everything saves to a MongoDB backend through a Node API. I also want to add google sign-in, because some friends of mine would also be very interested in such an app. 
 Additionally, in the future, it would even be nice to compare stats among friends, but I'm not sure about this yet. 
@@ -27,13 +28,15 @@ Additionally, in the future, it would even be nice to compare stats among friend
 Milestone(s)
 ------------
 
-I plan to finish until step 2-3 for the Midpoint check.
+I plan to finish until step 3-4 for the Midpoint check.
 
 1	Set up Express server, MongoDB models (User, Exercise, Workout, Log) and basic GET/POST routes
 2	Static HTML/CSS: mobile first layout with Flexbox and searchable exercise list
 3	Workout Builder: drag and drop (maybe using SortableJS) and save to backend
-4	Add Chart.js graphs and google signin 
-5	Final steps: tweaks, polishes etc.
+4   Calendar: Calendar to save Workout Templates for a specific day (color coded)
+5	Add Chart.js graphs and google signin 
+6   Profile Page for user
+7	Final steps: tweaks, polishes etc.
 
 Possible blockers
 
