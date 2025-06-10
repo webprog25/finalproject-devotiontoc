@@ -1,29 +1,97 @@
 Final Project Milestone
-==============================
 
-Project Title: <TODO>
-Your Name: <TODO>
-
+Project Title: IronLog
+Your Name: Marcel Gabriel Janzer
 Overview
---------
-<TODO: Let me know how things are going. What have you explored, looked into, worked on, and tried so far? What do you have left to do? Are you running into any particular difficulties or blockers?>
 
+So far I have a working webapp with:
+
+    Auth: Google SignIn with JWT and /api/config based clientID fetch
+
+    Backend: Node/Express + Mongo (Exercises, Templates, Logs, Plans, Users)
+
+    UI:
+
+        Log: per training set logging -> volume charts
+
+        Builder: create and edit templates with color picker
+
+        Planner: month and week view with color coded (based on template color) schedule and clickable/pressable tiles to get more info (long click)
+
+        Profile: avatar preview with upload and logout (and theme but not working yet)
+
+    PWA: service-worker offline cache and safe area on iOS (still need to test with WebKit)
+
+    Design:  flex header (top right profile) and fixed bottom nav
+
+What’s left:
+
+High Priority:
+Fixing Charts
+UI overhaul
+Fix weekly view in calendar
+Thinking about Exercise API and how to get GIFs, potentially just storing everything in mongo and serving it like I did it now
+Fixing TODO's in the code and minor bugs
+
+Low Proiority:
+Dark theme (not sure yet though) 
+SortableJS draganddrop to reorder exercises in template 	
+Avatar upload code written but not fully tested
+Unit tests 
+
+
+No critical blockers: the only earlier issue was Google GSI with COOP
+s--> olved by removing the header in dev
 Project Changes
----------------
-<TODO: If you are planning to change something about your project (scope, features, etc.) from your proposal, please let me know what changes you're planning to make.>
+
+    Added a Calendar planner (month/week) not in original proposal (but added it then to it)
+
+    Dropped the initial idea of SortableJS, but might revisit though
+
+    Added Profile page with avatar upload and settings 
 
 Implementation Details
-----------------------
-<TODO: Describe how you will implement (or have implemented) a specific feature or part of the project. Include specific details about the frontend (e.g. what classes you'll have and how the user interface will work) and backend (e.g. what API endpoints you'll use and how you'll store the data). As with the proposal, this can change later; I just want to make sure you've thought through some of these details.>
 
-External libraries and code
----------------------------
-<TODO: Identify any external libraries or code you are using or plan to use, and describe how it fits into your project. Please include everything even if you already listed it in your proposal.>
+Template editor	showBuilder() builds a <ul> where each row is <li.row card> 
+Backend:
+POST /api/templates (create) 
+PUT /api/templates/:id (update) stores in Template collection
 
-Collaboration and resources
----------------------------
-<TODO: Identify any sources you have consulted or plan to consult, except for code listed above. Include those you listed previously in your proposal.>
+Calendar planner	
+showPlanner() renders a grid and assigns template model and longpress shows preview 
+body class month/week toggles CSS
+	
+Plan model user,date,template:
+Backend:
+GET /api/plans?month=YYYY-MM
+PUT /api/plans upsert
+
+Charts	showStats() aggregates logs per exercise
+Chart.js line graph
+
+Profile	showProfile() file input preview
+Backend:
+/api/user PUT with multer saves in avatar directory
+
+External Libraries
+Chart.js for progress graphs
+Multer for avatar file upload
+Google Identity Services for OAuth login
+Mongoose for MongoDB models
+dotenv for env vars
+	
+Collaboration and Resources
+
+2 of my friends are going to test this on their phone as soon as I implement it 
+within WebKit on iOS.
+
+I used to Google Gemini 2.5 Experimental to help out with some css. I had no experiece with touchscreens and 
+since we did not cover it in the course, I used AI to help me with the styling. Especially the first part of the 
+style.css. Other than that I used many docs and also existing code from other projects I did in the past. 
+(routes are usually pretty similar in regards of the structure etc.)
 
 Anything else?
---------------
-<TODO: Anything else you'd like me to know?>
+
+Going to drop the CSV export and want to focus on UI more. It's really difficult for me to support touchscreen
+and mobile-first developing with out any frontend framework. I usually use React, therefore the UI is a bit lackluster
+in my opinion right now :(. 
