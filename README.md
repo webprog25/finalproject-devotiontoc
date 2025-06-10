@@ -2,6 +2,10 @@
 # Marcel Gabriel Janzer
 Mobile first web app for tracking gym workouts.
 
+I managed to introduce a bug in the charts, so they are not wokring properly 
+right now. The rest should work and I introduced some additional features that 
+I did not plan beforehand. For example, the ability to change the profile picture.
+
 Note: this is tested on chrome with a screen sice of an iphone 12 pro
 You can achieve this by opneing the developer console and at the bottom left 
 corner change the screen size and choose different phones.
@@ -10,6 +14,9 @@ Another Note: I downgraded to Express 4.21.2, since I had some issues with versi
 This will be fixed in the future though. 
 
 **Stack:** Express + MongoDB + plain HTML/CSS/JS
+
+**Dependencies:**
+ bcrypt,cors,dotenv,express,jsonwebtoken,mongoose,multer
 
 See full documentation in the proposal.
 
